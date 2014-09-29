@@ -49,8 +49,41 @@ describe "Restaurant" do
 
 			expect(page).to     have_content('Cafe Nero')
 			expect(current_path).to eq '/restaurants'
+		end
+	end
 
+	context "Deleting a restaurant" do
+		before do 
+			Restaurant.create(name: 'Nero')
+		end
+
+		it "the user can delete a restaurant by clicking a button" do
+			visit '/restaurants'
+
+			click_link 'Delete'
+
+			expect(page).not_to have_content('Nero')
+			expect(page).to     have_content('Restaurant deleted')
+			expect(current_path).to eq '/restaurants'
+			
 		end
 	end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
