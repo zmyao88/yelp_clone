@@ -11,16 +11,27 @@ describe "Restaurant" do
 		end
 	end
 
-	context "adding a restaurant" do
+	context "Adding a restaurant" do
     before do
       Restaurant.create(name: 'Nero')
     end
 
-		it "Shows a list of all restaurants" do
+		it "User sees a list of all restaurants" do
 			visit '/restaurants'
 
 			expect(page).to have_content('Nero')
 			expect(page).not_to have_content("There is no Restaurants")
+		end
+
+		it "User adds a restaurant" do
+			visit '/restaurants'
+
+			click_link 'Add Restaurant'
+			fill_in 'Name', with: "Nero"
+			click_button 'Create Restaurant'
+
+			expect(page).to have_content 'Nero'
+			expect(current_path).to eq '/restaurants'
 		end
 	end
 
