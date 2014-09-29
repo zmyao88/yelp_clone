@@ -2,7 +2,9 @@
 	
 	<% @restaurants.each do | restaurant | %>
 		
-		<%= restaurant.name %>
+		<h2> <%= restaurant.name %> </h2>
+
+		<%= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant) %>
 	<% end %>
 
 <% else %>

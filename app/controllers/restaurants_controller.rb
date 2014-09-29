@@ -14,5 +14,16 @@ def create
 	redirect_to restaurants_path
 end
 
+def edit
+	@restaurant = Restaurant.find(params[:id])
+end
+
+def update
+	@restaurant = Restaurant.find(params[:id])
+	@restaurant.update(params[:restaurant].permit(:name))
+
+	redirect_to restaurants_path
+end
+
 
 end
