@@ -11,6 +11,19 @@ describe "Restaurant" do
 		end
 	end
 
+	context "adding a restaurant" do
+    before do
+      Restaurant.create(name: 'Nero')
+    end
+
+		it "Shows a list of all restaurants" do
+			visit '/restaurants'
+
+			expect(page).to have_content('Nero')
+			expect(page).not_to have_content("There is no Restaurants")
+		end
+	end
+
 end
 
 

@@ -1,3 +1,15 @@
-<h3>There is no Restaurants</h3>
+<% if @restaurants.any? %>
+	
+	<% @restaurants.each do | restaurant | %>
+		
+		<%= restaurant.name %>
+	<% end %>
+
+<% else %>
+
+	<h3>There is no Restaurants</h3>
+
+<% end %>
+
 
 <%= link_to 'Add Restaurant', restaurants_path %>
