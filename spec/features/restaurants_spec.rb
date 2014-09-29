@@ -28,10 +28,12 @@ describe "Restaurant" do
 			visit '/restaurants'
 
 			click_link 'Add Restaurant'
-			fill_in 'Name', with: "Nero"
+			fill_in 'Name'       , with: "Nero"
+			fill_in 'Description', with: "The best coffee"
 			click_button 'Create Restaurant'
 
 			expect(page).to have_content('Nero')
+			expect(page).to have_content('The best coffee')
 			expect(current_path).to eq('/restaurants')
 		end
 	end
