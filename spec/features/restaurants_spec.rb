@@ -53,6 +53,21 @@ describe "Restaurant" do
 		end
 	end
 
+	context 'Deleting a restaurant' do
+		before do
+		  Restaurant.create(name: 'Nero')
+		end
+
+		it "after clicking the link the restaurant is deleted" do
+			visit '/restaurants'
+
+			click_link 'Delete Nero'
+
+			expect(page).to have_content('Nero has been deleted')
+			expect(current_path).to eq('/restaurants') 
+		end
+	end
+
 end
 
 
