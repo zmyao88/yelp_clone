@@ -1,3 +1,12 @@
-<h3>There is no restaurants</h3>
+<% if @restaurants.any? %>
+	<% @restaurants.each do | item | %>
+		<%= item.name %>
+	<%end%>
 
-<a href="#">Add a restaurant</a>
+<% else %>
+
+	<h3>There is no restaurants</h3>
+
+<% end %>
+
+<a href="#">Add restaurant</a>
