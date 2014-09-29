@@ -13,13 +13,14 @@ describe "Restaurant" do
 
 	context "Adding a restaurant" do
     before do
-      Restaurant.create(name: 'Nero', description: 'The best coffee')
+      Restaurant.create(name: 'Nero', description: 'The best coffee', cuisine: 'Cafe')
     end
 
 		it "User sees a list of all restaurants" do
 			visit '/restaurants'
 
 			expect(page).to have_content('Nero')
+			expect(page).to have_content('Cafe')
 			expect(page).to have_content('The best coffee')
 			expect(page).not_to have_content("There is no Restaurants")
 		end
