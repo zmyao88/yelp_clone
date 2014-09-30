@@ -1,14 +1,13 @@
-<%= form_for @restaurant do | form | %>
+<%= form_for @restaurant do |form| %>
 
-<%= form.label      :name        %>
-<%= form.text_field :name        %>
+<%= form.label      :name          %>
+<%= form.text_field :name          %>
 
-<%= form.label      :cuisine     %>
-<%= form.text_field :cuisine     %>
+<%= form.label      :cuisine       %>
+<%= form.text_field :cuisine       %>
 
-<%= form.label      :description %>
-<%= form.text_area  :description %>
+<%= form.label      :description   %>
+<%= form.text_area  :description   %>
 
-<%= form.submit  %>
-
+<%= form.submit                    %>
 <%end%>

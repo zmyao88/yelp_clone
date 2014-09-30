@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
 	end
 
 	def create
-		restaurant = Restaurant.create(params[:restaurant].permit(:name,:cuisine,:description))
+		restaurant = Restaurant.create(params[:restaurant].permit(:name,:description,:cuisine))
 
 		redirect_to restaurants_path
 	end
@@ -20,7 +20,7 @@ class RestaurantsController < ApplicationController
 
 	def update
 		@restaurant = Restaurant.find(params[:id])
-		@restaurant.update(params[:restaurant].permit(:name,:cuisine,:description))
+		@restaurant.update(params[:restaurant].permit(:name,:description,:cuisine))
 
 		redirect_to restaurants_path
 	end
@@ -28,7 +28,6 @@ class RestaurantsController < ApplicationController
 	def destroy
 		@restaurant = Restaurant.find(params[:id])
 		@restaurant.destroy
-
 		flash[:notice] = "#{@restaurant.name} has been deleted"
 
 		redirect_to restaurants_path
@@ -37,4 +36,5 @@ class RestaurantsController < ApplicationController
 	def show
 		@restaurant = Restaurant.find(params[:id])
 	end
+
 end

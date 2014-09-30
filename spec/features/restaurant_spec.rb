@@ -40,24 +40,39 @@ describe "Restaurant" do
   		end
   	end
 
-  	context "Editing restaurants" do
-  		before do
-  			Restaurant.create(name: 'Nero', cuisine: 'Cafe', description: 'Italian coffee')
-  		end
+    context 'Submitting invalid information' do
+      
+      xit "with a name too short" do
+        visit '/restaurants'
 
-  		it "After clicking a link the user can edit a restaurant" do
-  			visit '/restaurants'
+        click_link 'Add Restaurant'
+        fill_in 'Name', with: 'Ne'
+        click_button 'Create Restaurant'
 
-  			click_link 'Edit Nero'
-  			fill_in 'Name',        with: 'Cafe Nero'
-  			fill_in 'Cuisine',     with: 'CoffeeShop'
-  			fill_in 'Description', with: 'Cafe italiano'
-  			click_button 'Update Restaurant'
+        expect(page).not_to have_css 'h2', text: 'Ne'
+        expect(page).to have_content('Errors')
+      end
 
-  			expect(page).to have_content('Cafe Nero')
-  			expect(current_path).to eq('/restaurants')
-  		end
-  	end
+    end
+
+    context "Editing restaurants" do
+      before do
+        Restaurant.create(name: 'Nero', cuisine: 'Cafe', description: 'Italian coffee')
+      end
+
+      it "After clicking a link the user can edit a restaurant" do
+        visit '/restaurants'
+
+        click_link 'Edit Nero'
+        fill_in 'Name',        with: 'Cafe Nero'
+        fill_in 'Cuisine',     with: 'CoffeeShop'
+        fill_in 'Description', with: 'Cafe italiano'
+        click_button 'Update Restaurant'
+
+        expect(page).to have_content('Cafe Nero')
+        expect(current_path).to eq('/restaurants')
+      end
+    end
 
   	context 'Deleting a restaurant' do
   		before do
@@ -76,7 +91,7 @@ describe "Restaurant" do
 
   	context 'The user can see a single restaurant' do
   		before do
-  			Restaurant.create(name: 'Nero', description: 'Italian coffee')
+  			Restaurant.create(name: 'Nero', description: 'Italian coffee',cuisine: 'CoffeeShop')
   		end
 
   		it "After clicking the button the user will see the restaurant" do
