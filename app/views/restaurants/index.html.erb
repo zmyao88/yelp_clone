@@ -1,8 +1,14 @@
 <% if @restaurants.any? %>
 	
 	<% @restaurants.each do | restaurant | %>
+	
+	<section>
+		<h2> <%= restaurant.name %>    </h2>
+		<h5> <%= restaurant.cuisine%>  </h5>
 
-		<h2><%= restaurant.name %></h2>
+		<p> <%= restaurant.description %> </p>
+
+	</section>
 
 	<%end%>
 
