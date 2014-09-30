@@ -76,7 +76,7 @@ describe "Restaurant" do
 
   	context 'The user can see a single restaurant' do
   		before do
-  			Restaurant.create(name: 'Nero', description: 'Best coffee')
+  			Restaurant.create(name: 'Nero', description: 'Italian coffee')
   		end
 
   		it "After clicking the button the user will see the restaurant" do
@@ -84,7 +84,7 @@ describe "Restaurant" do
 
   			click_link 'Show Nero'
 
-  			expect(page).to     have_content('Best coffee')
+  			expect(page).to     have_content('Italian coffee')
         expect(current_path).to match(/restaurants\/\d/)
   		end
   	end
