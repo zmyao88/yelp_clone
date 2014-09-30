@@ -10,11 +10,12 @@ describe "Reviews" do
 		visit '/restaurants'
 
 		click_link 'Review Nero'
-		fill_in 'Review', with: 'Best coffee'
-		select  '3',      from: 'Rating'
-    click_button 'Leave review'
+		fill_in 'Thoughts', with: 'Best coffee'
+		select  '3',        from: 'Rating'
+    click_button 'Leave Review'
 
     expect(page).to have_content('Best coffee')
+    expect(page).to have_content('3')
     expect(current_path).to eq('/restaurants')
 	end
 
