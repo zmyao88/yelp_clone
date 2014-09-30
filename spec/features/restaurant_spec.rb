@@ -61,7 +61,7 @@ describe "Restaurant" do
 
   	context 'Deleting a restaurant' do
   		before do
-  			Restaurant.create(name: 'Nero', cuisine: 'Cafe', description: 'Italian coffee')
+  			Restaurant.create(name: 'Nero')
   		end
 
   		it "The user can delete a restaurant" do
@@ -71,6 +71,21 @@ describe "Restaurant" do
 
   			expect(page).to have_content('Nero has been deleted')
   			expect(current_path).to eq('/restaurants')
+  		end
+  	end
+
+  	context 'The user can see a single restaurant' do
+  		before do
+  			Restaurant.create(name: 'Nero', description: 'Best coffee')
+  		end
+
+  		it "After clicking the button the user will see the restaurant" do
+  			visit '/restaurants'
+
+  			click_link 'Show Nero'
+
+  			expect(page).to     have_content('Best coffee')
+        expect(current_path).to match(/restaurants\/\d/)
   		end
   	end
 
