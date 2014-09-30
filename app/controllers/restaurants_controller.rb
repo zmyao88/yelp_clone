@@ -20,7 +20,7 @@ end
 
 def update
 	@restaurant = Restaurant.find(params[:id])
-	@restaurant.update(params[:restaurant].permit(:name,:description))
+	@restaurant.update(params[:restaurant].permit(:name,:description,:cuisine))
 
 	redirect_to restaurants_path
 end

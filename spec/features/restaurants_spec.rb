@@ -52,10 +52,12 @@ describe "Restaurant" do
 
 			click_link 'Edit Nero'
 			fill_in 'Name',        with: 'Cafe Nero'
+			fill_in 'Cuisine',     with: 'CoffeShop'
 			fill_in 'Description', with: "The worst coffee"
 			click_button 'Update Restaurant'
 
 			expect(page).to have_content('Cafe Nero')
+			expect(page).to have_content('CoffeShop')
 			expect(page).to have_content('The worst coffee')
 			expect(current_path).to eq('/restaurants')
 		end
