@@ -9,7 +9,7 @@ def new
 end
 
 def create
-	restaurant = Restaurant.create(params[:restaurant].permit(:name,:description))
+	restaurant = Restaurant.create(params[:restaurant].permit(:name,:description,:cuisine))
 
 	redirect_to restaurants_path
 end
