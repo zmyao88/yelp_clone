@@ -40,5 +40,24 @@ describe "Restaurant" do
   		end
   	end
 
+  	context "Editing restaurants" do
+  		before do
+  			Restaurant.create(name: 'Nero', cuisine: 'Cafe', description: 'Italian coffee')
+  		end
+
+  		it "After clicking a link the user can edit a restaurant " do
+  			visit '/restaurants'
+
+  			click_link 'Edit Nero'
+  			fill_in 'Name',        with: 'Cafe Nero'
+  			fill_in 'Cuisine',     with: 'CoffeeShop'
+  			fill_in 'Description', with: 'Cafe italiano'
+  			click_button 'Update Restaurant'
+
+  			expect(page).to have_content('Cafe Nero')
+  			expect(current_path).to eq('/restaurants')
+  		end
+  	end
+
   end
 end

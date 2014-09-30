@@ -8,6 +8,8 @@
 
 		<p> <%= restaurant.description %> </p>
 
+		<%= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant) %>
+
 	</section>
 
 	<%end%>
