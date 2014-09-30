@@ -15,6 +15,7 @@
 		<%= link_to "Review #{restaurant.name}",new_restaurant_review_path(restaurant) %>
 
 		<ul>
+
 			<% restaurant.reviews.each do | review | %>
 
 			<li> <%= "#{review.thoughts} (#{review.rating})"%> </li>
