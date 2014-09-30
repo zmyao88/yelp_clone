@@ -26,13 +26,17 @@ describe "Restaurant" do
   			expect(page).not_to have_content('There is no restaurants yet')
   		end
 
-  		xit "The user can add a restaurant" do
+  		it "The user can add a restaurant" do
   			visit '/restaurants'
 
   			click_link 'Add Restaurant'
-  			fill_in 'Name', with:
+  			fill_in 'Name',        with: 'Nero'
+  			fill_in 'Cuisine',     with: 'Cafe'
+  			fill_in 'Description', with: 'Italian coffee'
+  			click_button 'Create Restaurant'
 
-        
+        expect(page).not_to have_content('There is no restaurants yet')
+        expect(current_path).to eq('/restaurants')
   		end
   	end
 
