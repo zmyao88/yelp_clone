@@ -45,7 +45,7 @@ describe "Restaurant" do
   			Restaurant.create(name: 'Nero', cuisine: 'Cafe', description: 'Italian coffee')
   		end
 
-  		it "After clicking a link the user can edit a restaurant " do
+  		it "After clicking a link the user can edit a restaurant" do
   			visit '/restaurants'
 
   			click_link 'Edit Nero'
@@ -55,6 +55,21 @@ describe "Restaurant" do
   			click_button 'Update Restaurant'
 
   			expect(page).to have_content('Cafe Nero')
+  			expect(current_path).to eq('/restaurants')
+  		end
+  	end
+
+  	context 'Deleting a restaurant' do
+  		before do
+  			Restaurant.create(name: 'Nero', cuisine: 'Cafe', description: 'Italian coffee')
+  		end
+
+  		it "The user can delete a restaurant" do
+  			visit '/restaurants'
+
+  			click_link 'Delete Nero'
+
+  			expect(page).to have_content('Nero has been deleted')
   			expect(current_path).to eq('/restaurants')
   		end
   	end
