@@ -30,10 +30,12 @@ describe "Restaurant" do
 
 			click_link 'Add Restaurant'
 			fill_in 'Name'       , with: "Nero"
+			fill_in 'Cuisine'    , with: "Cafe"
 			fill_in 'Description', with: "The best coffee"
 			click_button 'Create Restaurant'
 
 			expect(page).to have_content('Nero')
+			expect(page).to have_content('Cafe')
 			expect(page).to have_content('The best coffee')
 			expect(current_path).to eq('/restaurants')
 		end
@@ -41,7 +43,7 @@ describe "Restaurant" do
 
 	context 'Editing a restaurant' do
 		before do
-			Restaurant.create(name: 'Nero')
+			Restaurant.create(name: 'Nero', description: 'The best coffee', cuisine: 'Cafe')
 		end
 
 		it "after clicking the link the user can edit the restaurant" do
@@ -61,7 +63,7 @@ describe "Restaurant" do
 
 	context 'Deleting a restaurant' do
 		before do
-		  Restaurant.create(name: 'Nero')
+		  Restaurant.create(name: 'Nero', description: 'The best coffee', cuisine: 'Cafe')
 		end
 
 		it "after clicking the link the restaurant is deleted" do
