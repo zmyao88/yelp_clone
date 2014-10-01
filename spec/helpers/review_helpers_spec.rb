@@ -10,5 +10,22 @@ describe ReviewsHelper, :type => :helper do
 		it "returns 5 black stars for 5" do
 			expect(helper.star_rating(5)).to eq("★★★★★")
 		end
+	
+		it "returns 4 black stars and 1 empty stars" do
+			expect(helper.star_rating(4)).to eq("★★★★☆")
+		end
+
+		it "returns 3 black stars and 2 empty stars" do
+			expect(helper.star_rating(3)).to eq("★★★☆☆")
+		end
+
+		it "returns 2 black stars 3 empty stars" do
+			expect(helper.star_rating(2)).to eq("★★☆☆☆")
+		end
+
+		it "returns 5 empty stars" do
+			expect(helper.star_rating(0)).to eq("☆☆☆☆☆")
+		end
+
 	end
 end
