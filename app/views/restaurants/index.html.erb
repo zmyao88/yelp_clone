@@ -20,7 +20,7 @@
 
 			<li> <%= "#{review.thoughts} (#{review.rating})"%> </li>
 			<%= link_to 'Endorse this review', review_endorsements_path(review), method: :post %> 
-
+			<%= review.endorsements.count %> endorsement
 		</ul>
 
 			<% end %>
