@@ -19,6 +19,7 @@
 			<% restaurant.reviews.each do | review | %>
 
 			<li> <%= "#{review.thoughts} (#{review.rating})"%> </li>
+			<%= link_to 'Endorse this review', review_endorsements_path(review), method: :post %> 
 
 		</ul>
 
