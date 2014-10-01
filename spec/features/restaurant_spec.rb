@@ -41,7 +41,10 @@ describe "Restaurant" do
   	end
 
     context 'Submitting invalid information' do
-      
+      before do
+        Restaurant.create(name: 'Nero')
+      end
+
       it "with a name too short" do
         visit '/restaurants'
 
@@ -50,6 +53,16 @@ describe "Restaurant" do
         click_button 'Create Restaurant'
 
         expect(page).not_to have_css 'h2', text: 'Ne'
+        expect(page).to have_content('error')
+      end
+
+      it "with a name already taken" do
+        visit '/restaurants'
+
+        click_link 'Add Restaurant'
+        fill_in 'Name', with: 'Nero'
+        click_button 'Create Restaurant'
+
         expect(page).to have_content('error')
       end
 
@@ -76,7 +89,7 @@ describe "Restaurant" do
 
   	context 'Deleting a restaurant' do
   		before do
-  			Restaurant.create(name: 'Nero')
+  			Restaurant.create(name: 'Nero', description: 'Italian coffee')
   		end
 
   		it "The user can delete a restaurant" do
