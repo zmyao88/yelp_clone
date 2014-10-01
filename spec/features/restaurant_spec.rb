@@ -42,7 +42,7 @@ describe "Restaurant" do
 
     context 'Submitting invalid information' do
       
-      xit "with a name too short" do
+      it "with a name too short" do
         visit '/restaurants'
 
         click_link 'Add Restaurant'
