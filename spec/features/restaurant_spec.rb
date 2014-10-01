@@ -56,16 +56,6 @@ describe "Restaurant" do
         expect(page).to have_content('error')
       end
 
-      it "with a name already taken" do
-        visit '/restaurants'
-
-        click_link 'Add Restaurant'
-        fill_in 'Name', with: 'Nero'
-        click_button 'Create Restaurant'
-
-        expect(page).to have_content('error')
-      end
-
     end
 
     context "Editing restaurants" do

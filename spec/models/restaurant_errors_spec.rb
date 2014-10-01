@@ -30,10 +30,4 @@ RSpec.describe Restaurant, :type => :model do
 		expect(restaurant).to have(1).error_on(:cuisine)
 		expect(restaurant).not_to be_valid
 	end
-
-	it "is only valid with a rating between 1..5" do
-		review = Review.new(rating:4)
-		expect(review).to be_valid
-	end
-
 end
