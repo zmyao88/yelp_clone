@@ -10,5 +10,11 @@ RSpec.describe Restaurant, :type => :model do
 		expect(restaurant).not_to be_valid
 	end
 
+	it	"has to   have unique name" do
+			Restaurant.create(name: 'KFC')
+			restaurant = Restaurant.new(name:'KFC')
+
+			expect(restaurant).to have(1).error_on(:name)
+	end
 
 end
