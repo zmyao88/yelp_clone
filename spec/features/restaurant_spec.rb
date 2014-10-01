@@ -50,7 +50,7 @@ describe "Restaurant" do
         click_button 'Create Restaurant'
 
         expect(page).not_to have_css 'h2', text: 'Ne'
-        expect(page).to have_content('Errors')
+        expect(page).to have_content('error')
       end
 
     end
