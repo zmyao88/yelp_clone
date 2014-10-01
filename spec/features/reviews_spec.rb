@@ -29,6 +29,6 @@ describe "Reviews" do
 		fill_review('Best coffee',3)
 		fill_review('Worst coffee',5)
 
-		expect(page).to have_content("Average: 4")
+		expect(page).to have_content("Average: ★★★★☆")
 	end
 end
