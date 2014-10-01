@@ -89,7 +89,7 @@ describe "Restaurant" do
 
   	context 'Deleting a restaurant' do
   		before do
-  			Restaurant.create(name: 'Nero', description: 'Italian coffee')
+  			Restaurant.create(name: 'Nero', description: 'Italian coffee', cuisine: 'Fas Food')
   		end
 
   		it "The user can delete a restaurant" do

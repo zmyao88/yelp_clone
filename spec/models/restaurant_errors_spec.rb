@@ -10,8 +10,8 @@ RSpec.describe Restaurant, :type => :model do
 		expect(restaurant).not_to be_valid
 	end
 
-	it	"has to be have a unique name" do
-			Restaurant.create(name: 'KFC', description: 'Chicken')
+	it	"has to be unique name" do
+			Restaurant.create(name: 'KFC', description: 'Chicken', cuisine: 'Fas Food')
 			restaurant = Restaurant.create(name:'KFC')
 
 			expect(restaurant).to have(1).error_on(:name)
@@ -21,6 +21,13 @@ RSpec.describe Restaurant, :type => :model do
 		restaurant = Restaurant.new(description: '')
 
 		expect(restaurant).to have(1).error_on(:description)
+		expect(restaurant).not_to be_valid
+	end
+
+	it "the cuisine field must be filled" do
+		restaurant = Restaurant.new(cuisine: '')
+
+		expect(restaurant).to have(1).error_on(:cuisine)
 		expect(restaurant).not_to be_valid
 	end
 
