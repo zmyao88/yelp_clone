@@ -42,7 +42,8 @@ RSpec.describe Restaurant, :type => :model do
 		  restaurant = Restaurant.create(name:'KFC')
 		  restaurant.reviews.new(rating: 4)
 
-		  expect(restaurant.average_rating).to eq(4)end
+		  expect(restaurant.average_rating).to eq(4)
+		end
 
 		it "with 2 reviews" do
 			restaurant = Restaurant.create(name:'KFC')
