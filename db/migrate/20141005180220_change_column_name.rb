@@ -1,5 +1,5 @@
 class ChangeColumnName < ActiveRecord::Migration
   def change
-  	rename_column :reviews,     :review,   :thoughts
+  	rename_column :restaurants, :cusisine, :cuisine  
   end
 end

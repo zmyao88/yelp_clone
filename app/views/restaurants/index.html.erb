@@ -18,13 +18,15 @@
 
 			<% restaurant.reviews.each do | review | %>
 
-			<li> <%= "#{review.thoughts} (#{review.rating})"%> </li>
-			<%= link_to 'Endorse this review', review_endorsements_path(review), method: :post %> 
-			<%= review.endorsements.count %> endorsement
+			<li> <%= "#{review.thoughts} (#{review.rating})"%> 
+			<%= link_to 'Endorse this review',review_endorsements_path(review), class: "review_endorsement"%> 
+
+				<span class="endorsements_count"> <%= review.endorsements.count %> endorsement </span>
+			</li>
 		</ul>
 
 			<% end %>
-			<span> <%= "Average: #{star_rating(restaurant.average_rating)}" %></span>
+			<span> Average: <%= star_rating(restaurant.average_rating) %></span>
 	
 	</section>
 	<% end %>
