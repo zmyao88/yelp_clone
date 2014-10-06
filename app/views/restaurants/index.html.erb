@@ -40,5 +40,13 @@
 <% end %>
 
 
-<%= link_to 'Add Restaurant', new_restaurant_path %>
+<% if user_signed_in? %>
+
+	<%= link_to 'Add Restaurant', new_restaurant_path %>
+
+<% else %>
+
+	<h4>To add a restaurant you must be a registered user</h4>
+
+<% end %>
 
