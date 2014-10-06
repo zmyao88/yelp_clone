@@ -10,7 +10,7 @@
 	</div>
 <%end%>
 
-<%= form_for @restaurant do |form| %>
+<%= form_for @restaurant, :html => { :multipart => true } do |form| %>
 
 <%= form.label      :name          %>
 <%= form.text_field :name          %>
@@ -20,6 +20,9 @@
 
 <%= form.label      :description   %>
 <%= form.text_area  :description   %>
+
+<%= form.label      :image         %>
+<%= form.file_field :image         %>
 
 <%= form.submit                    %>
 <%end%>

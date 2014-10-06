@@ -3,7 +3,8 @@
 	<% @restaurants.each do | restaurant | %>
 	
 	<section>
-		<h2> <%= restaurant.name    %> </h2>
+		<h1><%= image_tag restaurant.image.url(:thumb) if restaurant.image? %><%= restaurant.name %></h1>
+
 		<h6> <%= restaurant.cuisine %> </h6>
 
 		<p>  <%= restaurant.description%></p>
@@ -27,6 +28,7 @@
 
 			<% end %>
 			<span> Average: <%= star_rating(restaurant.average_rating) %></span>
+
 	
 	</section>
 	<% end %>
@@ -40,4 +42,3 @@
 
 <%= link_to 'Add Restaurant', new_restaurant_path %>
 
-<!-- bin/rails g controller reviews -->
