@@ -4,7 +4,7 @@ gem 'devise' # user authentication
 
 gem 'paperclip' # images manager
 
-gem 'fog' # manage cloud services
+gem 'aws-sdk', '~> 1.5.7' # manage cloud services
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
