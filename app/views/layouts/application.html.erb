@@ -9,13 +9,21 @@
 </head>
 <body>
 
-<%= notice %>
+	<%= notice %>
 
-<h1>YELP</h1>
+	<h1>YELP</h1>
 
-<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+	<% if user_signed_in? %>
+	  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+	<% end %>
+	
+	<% if request.fullpath != "/users/sign_up" && request.fullpath != "/users/sign_in" %>
 
-<%= yield %>
+		<%= link_to 'Sign In', new_user_session_path      %>
+	  <%= link_to 'Sign Up', new_user_registration_path %>
+	<%end%>
+
+	<%= yield %>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
