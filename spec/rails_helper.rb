@@ -3,11 +3,17 @@ ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require "capybara/rails"
 
+# Add additional requires below this line. Rails is not loaded until this point!
+
+
+require "capybara/rails"
 require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
-# Add additional requires below this line. Rails is not loaded until this point!
+
+include Warden::Test::Helpers
+Warden.test_mode!
+
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -57,7 +63,8 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-  
+  config.include Capybara::DSL
+  config.include FactoryGirl::Syntax::Methods
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
