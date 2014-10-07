@@ -3,24 +3,27 @@
 	<% @restaurants.each do | restaurant | %>
 	
 	<section>
-		<h1><%= image_tag restaurant.image.url(:thumb) if restaurant.image? %><%= restaurant.name %></h1>
+		
+		<%= image_tag restaurant.image.url(:thumb) if restaurant.image? %>
+
+		<h1><%= restaurant.name %></h1>
 
 		<h6> <%= restaurant.cuisine %> </h6>
 
 		<p>  <%= restaurant.description%></p>
 		
-		<%= link_to "Edit   #{restaurant.name}" , edit_restaurant_path(restaurant)             %>
-		<%= link_to "Delete #{restaurant.name}",  restaurant_path(restaurant), method: :delete %>
+		<%= link_to "Edit   #{restaurant.name}" , edit_restaurant_path(restaurant)              , class: 'link'  %>
+		<%= link_to "Delete #{restaurant.name}",  restaurant_path(restaurant), method: :delete  , class: 'link'  %>
 
-		<%= link_to "Show   #{restaurant.name}",  restaurant_path(restaurant) %>
-		<%= link_to "Review #{restaurant.name}",  new_restaurant_review_path(restaurant) %>
+		<%= link_to "Show   #{restaurant.name}",  restaurant_path(restaurant)  , class: 'link'  %>
+		<%= link_to "Review #{restaurant.name}",  new_restaurant_review_path(restaurant)  , class: 'link'  %>
 
 		<ul>
 
 			<% restaurant.reviews.each do | review | %>
 
 			<li> <%= "#{review.thoughts} (#{review.rating})"%> 
-			<%= link_to 'Endorse this review',review_endorsements_path(review), class: "review_endorsement"%> 
+			<%= link_to 'Endorse this review',review_endorsements_path(review), class: "review_endorsement"  , class: 'link' %> 
 
 				<span class="endorsements_count"> <%= review.endorsements.count %> endorsement </span>
 			</li>
@@ -41,7 +44,7 @@
 
 
 
-	<%= link_to 'Add Restaurant', new_restaurant_path %>
+	<%= link_to 'Add Restaurant', new_restaurant_path  , class: 'link'  %>
 
 
 

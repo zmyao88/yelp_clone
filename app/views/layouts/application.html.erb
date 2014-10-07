@@ -11,19 +11,27 @@
 
 	<%= notice %>
 
-<%= image_tag('logo.png') %>
+	<header>
+		<%= image_tag('logo.png') %>
+		
+		<% if user_signed_in? %>
+		  <%= link_to 'Sign Out',  destroy_user_session_path, method: :delete  , class: 'link' %>
+		<% end %>
 
-	<% if user_signed_in? %>
-	  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-	<% end %>
-	
-	<% if request.fullpath != "/users/sign_up" && request.fullpath != "/users/sign_in" && !user_signed_in? %>
+		<% if request.fullpath != "/users/sign_up" && request.fullpath != "/users/sign_in" && !user_signed_in? %>
 
-		<%= link_to 'Sign In', new_user_session_path      %>
-	  <%= link_to 'Sign Up', new_user_registration_path %>
-	<%end%>
+			<%= link_to 'Sign In',  new_user_session_path,       class: 'link' %>
+		  <%= link_to 'Sign Up',  new_user_registration_path,  class: 'link' %>
+		  
+		  <%= link_to 'Home',  restaurants_path  ,             class: 'link' %>
+		 <%end%>
+	</header>
+
+
 
 	<%= yield %>
+
+	<%= image_tag('happy_footer.png') %>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
