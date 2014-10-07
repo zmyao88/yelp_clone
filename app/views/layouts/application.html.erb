@@ -31,11 +31,13 @@
 		 </section>
 	</header>
 
-
-
-	<%= yield %>
-
-	<%= image_tag('happy_footer.png') %>
+	<div class="wrapper">
+		<%= yield %>
+	</div>
+	
+	<footer>
+		<%= image_tag('happy_footer.png') %>
+	</footer>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 

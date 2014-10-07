@@ -1,0 +1,30 @@
+/* Header Styles  */
+
+@import 'base';
+
+header{
+	background: url(/assets/header_stars.png) no-repeat center, $main_red_color;
+	background-size: 1380px auto,100%;
+	padding: 20px;
+
+	section{
+		width: $width;
+		
+		img{
+			width: $width/8;
+		}
+
+		div{
+			
+			float: right;
+			position: relative;
+			top: 18px;
+			
+			a.link{
+				@include style_link();
+			}
+			
+		}
+
+	}
+}
