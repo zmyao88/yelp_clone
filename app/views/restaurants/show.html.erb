@@ -14,5 +14,6 @@
 
 			<% end %>
 			<span> Average: <%= star_rating(@restaurant.average_rating) %></span>
-
+		
+	<%= image_tag @restaurant.image.url(:thumb) %>
 </section>

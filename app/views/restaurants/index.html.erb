@@ -3,7 +3,7 @@
 	<% @restaurants.each do | restaurant | %>
 	
 	<section>
-		<h1><%= image_tag restaurant.image.url(:thumb) if restaurant.image? %><%= restaurant.name %></h1>
+		<h1><%= restaurant.name %></h1>
 
 		<h6> <%= restaurant.cuisine %> </h6>
 
@@ -28,7 +28,8 @@
 
 			<% end %>
 			<span> Average: <%= star_rating(restaurant.average_rating) %></span>
-
+		
+		<%= image_tag restaurant.image.url(:thumb) %>
 	
 	</section>
 	<% end %>
@@ -40,13 +41,9 @@
 <% end %>
 
 
-<% if user_signed_in? %>
+
 
 	<%= link_to 'Add Restaurant', new_restaurant_path %>
 
-<% else %>
 
-	<h4>To add a restaurant you must be a registered user</h4>
-
-<% end %>
 
