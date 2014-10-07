@@ -6,7 +6,7 @@ describe "Restaurant" do
   	it "for the first time" do
   		visit '/restaurants'
 
-  		expect(page).to have_content('YELP')
+  		expect(page).to have_selector('img[alt=Logo]')
   		expect(page).to have_content('There is no restaurants yet')
   		expect(page).to have_link('Add Restaurant')
   	end
@@ -19,7 +19,7 @@ describe "Restaurant" do
   		it "The user will see all the restaurants" do
   			visit '/restaurants'
 
-  			expect(page).to     have_content('YELP')
+  			expect(page).to     have_xpath('//img[@src="/assets/logo.png"]')
   			expect(page).to     have_content('Nero')
   			expect(page).to     have_content('Cafe')
   			expect(page).to     have_content('Italian coffee')

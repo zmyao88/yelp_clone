@@ -3,7 +3,7 @@
 	<% @restaurants.each do | restaurant | %>
 	
 	<section>
-		<h1><%= restaurant.name %></h1>
+		<h1><%= image_tag restaurant.image.url(:thumb) if restaurant.image? %><%= restaurant.name %></h1>
 
 		<h6> <%= restaurant.cuisine %> </h6>
 
@@ -28,8 +28,6 @@
 
 			<% end %>
 			<span> Average: <%= star_rating(restaurant.average_rating) %></span>
-		
-		<%= image_tag restaurant.image.url(:thumb) %>
 	
 	</section>
 	<% end %>
