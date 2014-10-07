@@ -12,19 +12,23 @@
 	<%= notice %>
 
 	<header>
-		<%= image_tag('logo.png') %>
-		
-		<% if user_signed_in? %>
-		  <%= link_to 'Sign Out',  destroy_user_session_path, method: :delete  , class: 'link' %>
-		<% end %>
+		<section>
+			<%= image_tag('logo.png') %>
+			
+			<div>
+				<% if user_signed_in? %>
+				  <%= link_to 'Sign Out',  destroy_user_session_path, method: :delete  , class: 'link' %>
+				<% end %>
 
-		<% if request.fullpath != "/users/sign_up" && request.fullpath != "/users/sign_in" && !user_signed_in? %>
+				<% if request.fullpath != "/users/sign_up" && request.fullpath != "/users/sign_in" && !user_signed_in? %>
 
-			<%= link_to 'Sign In',  new_user_session_path,       class: 'link' %>
-		  <%= link_to 'Sign Up',  new_user_registration_path,  class: 'link' %>
-		  
-		  <%= link_to 'Home',  restaurants_path  ,             class: 'link' %>
-		 <%end%>
+					<%= link_to 'Sign In',  new_user_session_path,       class: 'link' %>
+				  <%= link_to 'Sign Up',  new_user_registration_path,  class: 'link' %>
+				  
+				  <%= link_to 'Home',  restaurants_path  ,             class: 'link' %>
+				 <%end%>
+			</div>
+		 </section>
 	</header>
 
 
