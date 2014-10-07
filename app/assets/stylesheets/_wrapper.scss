@@ -3,7 +3,17 @@
 @import 'base';
 
 .wrapper{
+	position: relative;
 	width: $width;
+	padding: 3%;
+	background: white;
+	z-index: 5;
+	border: 1px solid #ccccc8;
+	border-top: none;
+	
+	.resraurant{
 
 
+	}
+	
 }

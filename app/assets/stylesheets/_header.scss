@@ -3,9 +3,12 @@
 @import 'base';
 
 header{
+	position: relative;
 	background: url(/assets/header_stars.png) no-repeat center, $main_red_color;
 	background-size: 1380px auto,100%;
 	padding: 20px;
+	box-shadow: 0px 1px 1px;
+	z-index: 11;
 
 	section{
 		width: $width;
