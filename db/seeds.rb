@@ -26,3 +26,37 @@ jamie.reviews.create(rating:4, thoughts:'bad')
 jamie.reviews.create(rating:5, thoughts:'great')
 jamie.reviews.create(rating:3, thoughts:'')
 
+wagamama = Restaurant.create(name: 'wagamama',description: 'Best noodles in town', cuisine: 'Asian Food' )
+wagamama.reviews.create(rating:1, thoughts:'bad')
+wagamama.reviews.create(rating:2, thoughts:'so so ')
+wagamama.reviews.create(rating:3, thoughts:'too fried')
+wagamama.reviews.create(rating:4, thoughts:'bad')
+wagamama.reviews.create(rating:5, thoughts:'great')
+wagamama.reviews.create(rating:3, thoughts:'bad')
+
+
+pret = Restaurant.create(name: 'Pret a manger', description: 'Coffee and sandwiches', cuisine: 'CoffeeShop'  )
+pret.reviews.create(rating:1, thoughts:'bad')
+pret.reviews.create(rating:2, thoughts:'so so ')
+pret.reviews.create(rating:3, thoughts:'too fried')
+pret.reviews.create(rating:4, thoughts:'bad')
+pret.reviews.create(rating:5, thoughts:'great')
+pret.reviews.create(rating:3, thoughts:'')
+
+macdonalds = Restaurant.create(name: 'macdonalds',description: 'Old Fashion burgers', cuisine: 'Fast Food' )
+macdonalds.reviews.create(rating:1, thoughts:'bad')
+macdonalds.reviews.create(rating:2, thoughts:'so so ')
+macdonalds.reviews.create(rating:3, thoughts:'too fried')
+macdonalds.reviews.create(rating:4, thoughts:'bad')
+macdonalds.reviews.create(rating:5, thoughts:'great')
+macdonalds.reviews.create(rating:3, thoughts:'bad')
+
+
+gola = Restaurant.create(name: 'Gola´s', description: 'Italian Food', cuisine: 'Mediterranean'  )
+gola.reviews.create(rating:1, thoughts:'bad')
+gola.reviews.create(rating:2, thoughts:'so so ')
+gola.reviews.create(rating:3, thoughts:'too fried')
+gola.reviews.create(rating:4, thoughts:'bad')
+gola.reviews.create(rating:5, thoughts:'great')
+gola.reviews.create(rating:3, thoughts:'')
+
