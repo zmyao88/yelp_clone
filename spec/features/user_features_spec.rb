@@ -1,8 +1,8 @@
 require "rails_helper"
 
 describe "User" do
-  
-  it "A user can be registered" do
+
+	it "A user can be registered" do
   	
   	visit '/restaurants'
 
@@ -20,22 +20,34 @@ describe "User" do
 
   context 'sign_in' do
 
-	  it "A user can sign in only with his Username" do
+  	before(:each) do
 			@byverdu = create(:byverdu)
+  	end
+
+	  it "A user can sign in only with his Username" do
 	  	
-	  	visit '/users/sign_in'
+	  	visit '/'
 
 	  	click_link('Sign In')
 	  	fill_in 'Username', with: 'byverdu'
 	  	fill_in 'Password', with: 's3cr3tistooshort'
 
 	  	click_button('Log in')
-
-	  	expect(current_path).to eq('/restaurants')
 	  	expect(page).to have_content('Signed in successfully.')
+    end
 
-	  end
+    it 'can sign out while being logged in' do
+    
+      login_as @byverdu
+      
+      visit '/restaurants'
+      click_link 'Sign Out'
+      
+      expect(page).to have_content 'Signed out successfully.'
+    end
   end
+
+  
 
 
 end
