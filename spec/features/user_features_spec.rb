@@ -47,7 +47,49 @@ describe "User" do
     end
   end
 
+  context "Actions when the user is signed in" do
+
+    before(:each) do
+      @byverdu = create :byverdu
+    end
+
+    it "only a registered user can sign in" do
+      visit '/restaurants'
+
+      expect(page).to have_content('Only registered users can add a restaurant')
+      click_link('Sign In')
+      fill_in 'Username', with: 'byverdu'
+      fill_in 'Password', with: 's3cr3tistooshort'
+
+      click_button('Log in')
+      expect(page).to have_content('Signed in successfully.')
+      expect(page).to have_link('Add Restaurant')
+    end
+
+  end
+
+
   
 
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
