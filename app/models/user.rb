@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, 
          :validatable, :authentication_keys => [:username]
 
+  validates :username, length: { minimum: 1 }
+
    attr_accessor :login
 
     def self.find_for_database_authentication(warden_conditions) # Change login from email to username
