@@ -13,6 +13,12 @@
     margin-bottom: 30px;
     font-size: 20px;
 
+    &[type="submit"]{
+			
+			@include style_link();
+      height: 30px;
+    }
+
     &:focus{
 			
 			outline: none !important;
@@ -21,14 +27,28 @@
       box-shadow: 0 0 5px $text_red_color;
     }
 
-    &[type="submit"]{
-			
-			@include style_link();
-      height: 30px;
+    &:focus[type="checkbox"]{
+			  outline: none !important;
+	      color:none;
+	      border: none;
+	      box-shadow: none;
+
     }
 	}
+
+	label[for=user_remember_me]{
+  	float: right;
+		position: relative;
+		top: -48px;
+		right: 430px;
+  }
 }
 
+a[href="/users/password/new"]{
+	float: right;
+	position: relative;
+	top: -25px;
+}
 
 ::-webkit-input-placeholder{
 	color: rgba(196,18,0,0.5);
