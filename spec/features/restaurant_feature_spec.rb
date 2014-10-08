@@ -66,7 +66,7 @@ describe "Restaurant" do
       it "After clicking a link the user can edit a restaurant" do
         visit '/restaurants'
 
-        click_link 'Edit Nero'
+        click_link 'Edit'
         fill_in 'Name',        with: 'Cafe Nero'
         fill_in 'Cuisine',     with: 'CoffeeShop'
         fill_in 'Description', with: 'Cafe italiano'
@@ -85,7 +85,7 @@ describe "Restaurant" do
   		it "The user can delete a restaurant" do
   			visit '/restaurants'
 
-  			click_link 'Delete Nero'
+  			click_link 'Delete'
 
   			expect(page).to have_content('Nero has been deleted')
   			expect(current_path).to eq('/restaurants')
@@ -100,7 +100,7 @@ describe "Restaurant" do
   		it "After clicking the button the user will see the restaurant" do
   			visit '/restaurants'
 
-  			click_link 'Show Nero'
+  			click_link 'Show'
 
   			expect(page).to     have_content('Italian coffee')
         expect(current_path).to match(/restaurants\/\d/)

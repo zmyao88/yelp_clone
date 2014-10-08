@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "Reviews" do
 
 	def fill_review(thoughts,rating)
-		click_link 'Review Nero'
+		click_link 'Review'
 		fill_in 'Thoughts', with: thoughts
 		select  rating,        from: 'Rating'
     click_button 'Leave Review'

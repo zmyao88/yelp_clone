@@ -1,0 +1,78 @@
+/* Styles Restaurant */
+
+@import 'base';
+
+
+
+.resraurant{
+		
+	width: ($width/2)+50;
+	padding: 2%;
+	margin: 50px auto;
+	border: 1px solid #ccccc8;
+	box-shadow: 0px 0px 1px;
+
+	img{ 
+		
+		float: right;
+		border: 2px solid #951102;
+		padding: 2px;
+		border-radius: 4px;
+		position: relative;
+	}
+
+	h1{
+		font-size: 30px;
+		font-weight: lighter;
+		text-align: center;
+		color: $text_red_color;
+	}
+
+	h6{ font-weight: 300 }
+
+	p{ margin: 5% }
+
+	.link_cont{
+		
+		display: inline-block;
+		width: ($width/4)+20;
+		margin: 1% ($width/8);
+
+		a.link{ 
+
+			@include style_link();
+			font-size: 13px;
+			font-weight: 100;
+		}
+		
+	}
+
+	ul{
+		margin: 5%;
+
+		li{
+			list-style-type: circle;
+
+			a{
+				text-decoration: none;
+				color: $text_red_color;
+
+				&:hover{
+					text-decoration: underline;
+				}
+			}
+
+		}
+		.arrenge_endorsement{
+			margin-bottom: 15px;
+		}
+	}
+
+	span:last-child{
+		color: $text_red_color;
+	}
+}
+
+a.link{
+	@include style_link();
+}

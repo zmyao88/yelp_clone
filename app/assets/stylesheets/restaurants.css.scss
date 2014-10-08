@@ -6,6 +6,7 @@
 
 *{
   margin: 0 auto;
+  font-family: sans-serif;
 }
 
 html{
@@ -14,7 +15,14 @@ html{
 
 @import 'header';
 @import 'wrapper';
+@import 'restaurant';
 
+footer{
+	img{
+		width: $width;
+		margin: 30px 250px;
+	}
+}
 
 
 
