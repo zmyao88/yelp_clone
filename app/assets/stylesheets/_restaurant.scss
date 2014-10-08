@@ -14,11 +14,8 @@
 
 	img{ 
 		
+		@include style_img();		
 		float: right;
-		border: 2px solid #951102;
-		padding: 2px;
-		border-radius: 4px;
-		position: relative;
 	}
 
 	h1{
@@ -47,26 +44,7 @@
 		
 	}
 
-	ul{
-		margin: 5%;
-
-		li{
-			list-style-type: circle;
-
-			a{
-				text-decoration: none;
-				color: $text_red_color;
-
-				&:hover{
-					text-decoration: underline;
-				}
-			}
-
-		}
-		.arrenge_endorsement{
-			margin-bottom: 15px;
-		}
-	}
+	@include style_ul_reviews();
 
 	span:last-child{
 		color: $text_red_color;

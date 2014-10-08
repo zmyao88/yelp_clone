@@ -1,0 +1,27 @@
+/* Show page styles */
+
+@import 'base';
+
+.show{
+
+	width: ($width/2)+100;
+
+	p:first-of-type{
+		
+		margin: 20px 0;	
+	}
+
+	p:last-of-type,
+	h1{ 
+		color: $text_red_color ; 
+		margin: 5%;
+    font-size: 26px;
+	}
+
+	img{
+		@include style_img();
+		margin: 30px 110px;
+	}
+
+  @include style_ul_reviews();
+}
