@@ -16,3 +16,10 @@ $width: 800px;
 	line-height: 18px;
 	padding: 7px;
 }
+
+@mixin style_input_focus(){
+	outline: none !important;
+  color: $text_red_color;
+  border: 1px solid $text_red_color;
+  box-shadow: 0 0 5px $text_red_color;
+}

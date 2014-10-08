@@ -19,21 +19,25 @@
       height: 30px;
     }
 
-    &:focus{
-			
-			outline: none !important;
-      color: $text_red_color;
-      border: 1px solid $text_red_color;
-      box-shadow: 0 0 5px $text_red_color;
-    }
+    &[type=file] { @include style_link() }
+
+    &:focus{ @include style_input_focus(); }
 
     &:focus[type="checkbox"]{
 			  outline: none !important;
 	      color:none;
 	      border: none;
 	      box-shadow: none;
+	  }
+	}
 
-    }
+	textarea{
+		
+		width: 400px;
+		height: 80px;
+		font-size: 15px;
+		
+		&:focus{ @include style_input_focus(); }
 	}
 
 	label[for=user_remember_me]{
@@ -42,9 +46,12 @@
 		top: -48px;
 		right: 430px;
   }
+
+  label[for=restaurant_description]{ float: left }
 }
 
-a[href="/users/password/new"]{
+a[href="/users/password/new"],
+.extra_style_devise{
 	float: right;
 	position: relative;
 	top: -25px;
