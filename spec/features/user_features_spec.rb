@@ -45,6 +45,15 @@ describe "User" do
       
       expect(page).to have_content 'Signed out successfully.'
     end
+
+    it "can edit his profile once is signed in" do
+      login_as @byverdu
+      
+      visit '/restaurants'
+      click_link 'Edit Account'
+      
+      expect(current_path).to eq('/users/edit')
+    end
   end
 
   context "Actions when the user is signed in" do
