@@ -10,4 +10,9 @@
 	z-index: 5;
 	border: 1px solid #ccccc8;
 	border-top: none;
+	
+	a.link{
+	@include style_link();
+
+	}
 }

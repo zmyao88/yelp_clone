@@ -1,0 +1,44 @@
+/* Form Styles */
+
+@import 'base';
+
+.wrapper form{
+
+	width: ($width/1.4);
+
+	input{
+
+		width: ($width/1.5);
+		height: 25px;
+    margin-bottom: 30px;
+    font-size: 20px;
+
+    &:focus{
+			
+			outline: none !important;
+      color: $text_red_color;
+      border: 1px solid $text_red_color;
+      box-shadow: 0 0 5px $text_red_color;
+    }
+
+    &[type="submit"]{
+			
+			@include style_link();
+      height: 30px;
+    }
+	}
+}
+
+
+::-webkit-input-placeholder{
+	color: rgba(196,18,0,0.5);
+}
+
+:focus::-webkit-input-placeholder { color:transparent; }
+
+
+// class new_restaurant --> edit and padding: 
+
+// class new_user  -->
+
+// class new_review --> reviews
