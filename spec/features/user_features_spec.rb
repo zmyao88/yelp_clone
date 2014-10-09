@@ -27,7 +27,7 @@ describe "User" do
 
 	  it "A user can sign in only with his Username" do
       
-      recreate_sign_in	  	
+      recreate_sign_in('byverdu','s3cr3tistooshort')	  	
 
 	  	expect(page).to have_content('Signed in successfully.')
     end
@@ -57,6 +57,7 @@ describe "User" do
     before(:each) do
       @kfc     = create(:kfc)
       @byverdu = create(:byverdu)
+      @sulby   = create(:sulby)
       @kfc.reviews.create(thoughts:'Worst ever',rating:2)
     end
 
@@ -78,9 +79,9 @@ describe "User" do
 
       expect(page).not_to have_link('Endorse this review')
       
-      recreate_sign_in
+      recreate_sign_in('sulby','s3cr3tistooshort')
 
-      recreate_review
+      recreate_review('Worst ever',2)
 
       expect(page).to have_link('Endorse this review')
       expect(page).to have_link('Add Restaurant')
@@ -89,14 +90,28 @@ describe "User" do
     it "a review belongs to one user" do
       visit '/restaurants'
 
-      recreate_sign_in
+      recreate_sign_in('byverdu','s3cr3tistooshort')
 
-      recreate_review
+      #puts page.html
+      #save_and_open_page
 
-      puts @byverdu.id
-      puts @kfc.reviews.last.thoughts
+      puts @kfc.reviews.last.user_id
+
+      recreate_review('Worst ever',2)
 
       expect(@kfc.reviews.last.user_id).to eq(@byverdu.id) 
+    end
+
+    it "a user can only review a restaurant once" do
+
+      visit '/restaurants'
+
+      recreate_sign_in('byverdu','s3cr3tistooshort')
+      recreate_review('Worst ever',2)
+      
+      click_link 'Review'
+      expect(page).to have_content 'Sorry, you can only review a restaurant once.'
+
     end
   end
 end

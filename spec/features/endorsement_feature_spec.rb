@@ -9,7 +9,7 @@ describe "Endorsing reviews" do
     @byverdu = create :byverdu
     login_as @byverdu
 
-    recreate_review
+    recreate_review('Worst ever',2)
   end
 
 	it "I can endorse a review updating the review count", js: true do

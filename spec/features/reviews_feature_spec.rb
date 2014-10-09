@@ -1,24 +1,23 @@
 require 'rails_helper'
 
+require_relative 'feature_helpers_spec'
+
 describe "Reviews" do
 
-	def fill_review(thoughts,rating)
-		click_link 'Review'
-		fill_in 'Thoughts', with: thoughts
-		select  rating,        from: 'Rating'
-    click_button 'Leave Review'
-	end
-	
 	before do
     Restaurant.create(name: 'Nero', description: 'Italian coffee', cuisine: 'Fas Food')
     @byverdu = create :byverdu
+    @sulby   = create :sulby
+
     login_as @byverdu
 	end
 
 	it "The user can add a review" do
 		visit '/restaurants'
 
-		fill_review('Best coffee',3)
+		login_as @byverdu
+
+		recreate_review('Best coffee',3)
 
     expect(page).to have_content('Best coffee')
     expect(page).to have_content('3')
@@ -28,9 +27,16 @@ describe "Reviews" do
 	it "with 2 reviews" do
 		visit '/restaurants'
 
-		fill_review('Best coffee',3)
-		fill_review('Worst coffee',5)
+		login_as @byverdu
+		recreate_review('Best coffee',3)
+
+		logout(:byverdu)
+
+		login_as @sulby
+
+		recreate_review('Worst coffee',5)
 
 		expect(page).to have_content("Average: ★★★★☆")
 	end
 end
+
