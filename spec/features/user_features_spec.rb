@@ -92,14 +92,21 @@ describe "User" do
 
       recreate_sign_in('byverdu','s3cr3tistooshort')
 
-      #puts page.html
-      #save_and_open_page
-
       puts @kfc.reviews.last.user_id
 
       recreate_review('Worst ever',2)
 
       expect(@kfc.reviews.last.user_id).to eq(@byverdu.id) 
+    end
+
+    it "a review got the username who created" do
+      
+      visit '/restaurants'
+
+      recreate_sign_in('byverdu','s3cr3tistooshort')
+      crecreate_review('Worst ever',2)
+
+      expect(page).to have_content('byverdu')
     end
 
     it "a user can only review a restaurant once" do
@@ -108,7 +115,7 @@ describe "User" do
 
       recreate_sign_in('byverdu','s3cr3tistooshort')
       recreate_review('Worst ever',2)
-      
+
       click_link 'Review'
       expect(page).to have_content 'Sorry, you can only review a restaurant once.'
 
