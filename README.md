@@ -26,7 +26,6 @@ Users can leave reviews for restaurants with a numerical value between 1 and 5, 
 1. AWS SDK
 1. Sass
 1. Postgres
-
 1. RSpec Rails
 1. Capybara
 1. Factory Girl
@@ -35,34 +34,41 @@ Users can leave reviews for restaurants with a numerical value between 1 and 5, 
 ### How to use
 
 ```ruby
+
 # 1. Clone this repository
 
 > git clone https://github.com/byverdu/yelp_clone.git
+
 
 # 2. Go to that directory
 
 > cd yelp_clone
 
+
 # 3. Install all dependencies
 
 > bundle install
+
 
 # 4. Create test and development databases
 
 > psql
 
-=# CREATE DATABASE yelp_clone_development;
-=# CREATE DATABASE yelp_clone_test;
+CREATE DATABASE yelp_clone_development;
+CREATE DATABASE yelp_clone_test;
 
-=# \q
+\q
+
 
 # 5. Create database migrations
 
 > rake db:migration
 
+
 # 6. Run the tests
 
 > rspec -fd
+
 
 # 7. Run the App
 
@@ -71,7 +77,6 @@ Users can leave reviews for restaurants with a numerical value between 1 and 5, 
 =====================
 
 visit 127.0.0.1:3000
-
-``
+```
 
 
