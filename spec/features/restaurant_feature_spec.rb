@@ -18,11 +18,12 @@ describe "Restaurant" do
       Restaurant.create(name: 'Nero', cuisine: 'Cafe', description: 'Italian coffee')
       @byverdu = create :byverdu
       login_as @byverdu
-		end
+    end
 
-		it "The user can add a restaurant" do
-			visit '/restaurants'
+    it "The user can add a restaurant" do
+      visit '/restaurants'
 
+      
       click_link 'Add Restaurant'
 			fill_in 'Name',        with: 'Nero'
 			fill_in 'Cuisine',     with: 'Cafe'
@@ -44,9 +45,6 @@ describe "Restaurant" do
     end
 
     context 'Submitting invalid information' do
-      before do
-        Restaurant.create(name: 'Nero')
-      end
 
       it "with a name too short" do
         visit '/restaurants'

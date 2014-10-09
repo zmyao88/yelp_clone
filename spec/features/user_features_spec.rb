@@ -57,9 +57,8 @@ describe "User" do
   end
 
   context "Actions when the user is signed in" do
-
     before(:each) do
-      @byverdu = create :byverdu
+      @byverdu = create(:byverdu)
     end
 
     it "only a registered user can sign in" do
@@ -76,11 +75,6 @@ describe "User" do
     end
 
   end
-
-
-  
-
-
 end
 
 
