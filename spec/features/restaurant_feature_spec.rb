@@ -63,6 +63,8 @@ describe "Restaurant" do
   context "Editing restaurants" do
     before do
       Restaurant.create(name: 'Nero', cuisine: 'Cafe', description: 'Italian coffee')
+      @byverdu = create :byverdu
+      login_as @byverdu
     end
 
     it "After clicking a link the user can edit a restaurant" do
@@ -82,6 +84,8 @@ describe "Restaurant" do
 	context 'Deleting a restaurant' do
 		before do
 			Restaurant.create(name: 'Nero', description: 'Italian coffee', cuisine: 'Fas Food')
+      @byverdu = create :byverdu
+      login_as @byverdu
 		end
 
 		it "The user can delete a restaurant" do
@@ -97,6 +101,8 @@ describe "Restaurant" do
 	context 'The user can see a single restaurant' do
 		before do
 			Restaurant.create(name: 'Nero', description: 'Italian coffee',cuisine: 'CoffeeShop')
+      @byverdu = create :byverdu
+      login_as @byverdu
 		end
 
 		it "After clicking the button the user will see the restaurant" do

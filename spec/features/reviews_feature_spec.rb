@@ -11,6 +11,8 @@ describe "Reviews" do
 	
 	before do
     Restaurant.create(name: 'Nero', description: 'Italian coffee', cuisine: 'Fas Food')
+    @byverdu = create :byverdu
+    login_as @byverdu
 	end
 
 	it "The user can add a review" do

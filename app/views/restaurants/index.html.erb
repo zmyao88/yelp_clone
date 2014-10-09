@@ -11,16 +11,18 @@
 		<h3> <%= restaurant.cuisine %> </h3>
 
 		<p>  <%= restaurant.description%></p>
-
-		<div class="link_cont">
 		
-		<%= link_to "Edit" , edit_restaurant_path(restaurant)              , class: 'link'    %>
-		<%= link_to "Delete",  restaurant_path(restaurant), method: :delete  , class: 'link'  %>
+		<% if user_signed_in? %>
 
-		<%= link_to "Show",  restaurant_path(restaurant)  , class: 'link'               %>
-		<%= link_to "Review",  new_restaurant_review_path(restaurant)  , class: 'link'  %>
-		</div>
+			<div class="link_cont">
+			
+			<%= link_to "Edit" , edit_restaurant_path(restaurant)              , class: 'link'    %>
+			<%= link_to "Delete",  restaurant_path(restaurant), method: :delete  , class: 'link'  %>
 
+			<%= link_to "Show",  restaurant_path(restaurant)  , class: 'link'               %>
+			<%= link_to "Review",  new_restaurant_review_path(restaurant)  , class: 'link'  %>
+			</div>
+		<% end %>
 		<ul>
 			<% restaurant.reviews.each do | review | %>
 				<li> <%= "#{review.thoughts} (#{review.rating})"%>
