@@ -54,10 +54,10 @@ Users can leave reviews for restaurants with a numerical value between 1 and 5, 
 
 > psql
 
-CREATE DATABASE yelp_clone_development;
-CREATE DATABASE yelp_clone_test;
+> CREATE DATABASE yelp_clone_development;
+> CREATE DATABASE yelp_clone_test;
 
-\q
+> \q
 
 
 # 5. Create database migrations
@@ -74,9 +74,10 @@ CREATE DATABASE yelp_clone_test;
 
 > rails s
 
-=====================
 
-visit 127.0.0.1:3000
+# 8. Go to the browser
+
+http://127.0.0.1:3000
 ```
 
 
