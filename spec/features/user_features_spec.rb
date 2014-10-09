@@ -57,6 +57,7 @@ describe "User" do
     before(:each) do
       @kfc     = create(:kfc)
       @byverdu = create(:byverdu)
+      @kfc.reviews.create(thoughts:'Worst ever',rating:2)
     end
 
     it "only a registered user can sign in" do
@@ -73,23 +74,30 @@ describe "User" do
     end
 
     it "only a registered user can leave a review" do
-      
       visit '/restaurants'
-
 
       expect(page).not_to have_link('Endorse this review')
       
       recreate_sign_in
 
+      recreate_review
+
+      expect(page).to have_link('Endorse this review')
+      expect(page).to have_link('Add Restaurant')
+    end
+
+    it "a review belongs to one user" do
+      visit '/restaurants'
+
+      recreate_sign_in
 
       recreate_review
 
+      puts @byverdu.id
+      puts @kfc.reviews.last.thoughts
 
-
-      expect(page).to have_content('Endorse this review')
-      expect(page).to have_content('Add Restaurant')
+      expect(@kfc.reviews.last.user_id).to eq(@byverdu.id) 
     end
-
   end
 end
 

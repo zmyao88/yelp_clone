@@ -1,4 +1,5 @@
 require "rails_helper"
+require_relative "feature_helpers_spec"
 
 describe "Endorsing reviews" do
   before do
@@ -8,11 +9,7 @@ describe "Endorsing reviews" do
     @byverdu = create :byverdu
     login_as @byverdu
 
-	  visit '/restaurants'
-		click_link 'Review'
-		fill_in "Thoughts", with: 'comment'
-		select 3, from: 'Rating'
-		click_button 'Leave Review'
+    recreate_review
   end
 
 	it "I can endorse a review updating the review count", js: true do

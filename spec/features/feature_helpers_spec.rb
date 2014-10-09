@@ -9,7 +9,7 @@ end
 def recreate_review
   visit '/restaurants'
   click_link 'Review'
-  fill_in "Thoughts", with: 'comment'
+  fill_in "Thoughts", with: 'Too fried'
   select 3, from: 'Rating'
   click_button 'Leave Review'
 end
