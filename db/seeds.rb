@@ -7,56 +7,34 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Restaurant.destroy_all
 Review.destroy_all
+User.destroy_all
 
+User.create(email:"alby@test.io", username: "byverdu",password:"12345678",password_confirmation:"12345678")
+User.create(email:"sulby@test.io", username: "sulby", password:"12345678",password_confirmation:"12345678")
 
 kfc = Restaurant.create(name: 'KFC',description: 'Kentucky Fried Chicken', cuisine: 'Fast Food' )
-kfc.reviews.create(rating:1, thoughts:'bad')
-kfc.reviews.create(rating:2, thoughts:'so so ')
-kfc.reviews.create(rating:3, thoughts:'too fried')
-kfc.reviews.create(rating:4, thoughts:'bad')
-kfc.reviews.create(rating:5, thoughts:'great')
-kfc.reviews.create(rating:3, thoughts:'bad')
-
+kfc.reviews.create(rating:1, thoughts:'bad'   , user_id: User.first.id )
+kfc.reviews.create(rating:2, thoughts:'so so ', user_id: User.last.id )
 
 jamie = Restaurant.create(name: 'Jamie´s', description: 'Italian Food', cuisine: 'Mediterranean'  )
-jamie.reviews.create(rating:1, thoughts:'bad')
-jamie.reviews.create(rating:2, thoughts:'so so ')
-jamie.reviews.create(rating:3, thoughts:'too fried')
-jamie.reviews.create(rating:4, thoughts:'bad')
-jamie.reviews.create(rating:5, thoughts:'great')
-jamie.reviews.create(rating:3, thoughts:'')
+jamie.reviews.create(rating:1, thoughts:'bad', user_id: User.first.id )
+jamie.reviews.create(rating:2, thoughts:'so so ', user_id: User.last.id )
 
 wagamama = Restaurant.create(name: 'wagamama',description: 'Best noodles in town', cuisine: 'Asian Food' )
-wagamama.reviews.create(rating:1, thoughts:'bad')
-wagamama.reviews.create(rating:2, thoughts:'so so ')
-wagamama.reviews.create(rating:3, thoughts:'too fried')
-wagamama.reviews.create(rating:4, thoughts:'bad')
-wagamama.reviews.create(rating:5, thoughts:'great')
-wagamama.reviews.create(rating:3, thoughts:'bad')
+wagamama.reviews.create(rating:1, thoughts:'bad', user_id: User.first.id )
+wagamama.reviews.create(rating:2, thoughts:'so so ', user_id: User.last.id )
 
 
 pret = Restaurant.create(name: 'Pret a manger', description: 'Coffee and sandwiches', cuisine: 'CoffeeShop'  )
-pret.reviews.create(rating:1, thoughts:'bad')
-pret.reviews.create(rating:2, thoughts:'so so ')
-pret.reviews.create(rating:3, thoughts:'too fried')
-pret.reviews.create(rating:4, thoughts:'bad')
-pret.reviews.create(rating:5, thoughts:'great')
-pret.reviews.create(rating:3, thoughts:'')
+pret.reviews.create(rating:1, thoughts:'bad', user_id: User.first.id )
+pret.reviews.create(rating:2, thoughts:'so so ', user_id: User.last.id )
+
 
 macdonalds = Restaurant.create(name: 'macdonalds',description: 'Old Fashion burgers', cuisine: 'Fast Food' )
-macdonalds.reviews.create(rating:1, thoughts:'bad')
-macdonalds.reviews.create(rating:2, thoughts:'so so ')
-macdonalds.reviews.create(rating:3, thoughts:'too fried')
-macdonalds.reviews.create(rating:4, thoughts:'bad')
-macdonalds.reviews.create(rating:5, thoughts:'great')
-macdonalds.reviews.create(rating:3, thoughts:'bad')
-
+macdonalds.reviews.create(rating:1, thoughts:'bad', user_id: User.first.id )
+macdonalds.reviews.create(rating:2, thoughts:'so so ', user_id: User.last.id )
 
 gola = Restaurant.create(name: 'Gola´s', description: 'Italian Food', cuisine: 'Mediterranean'  )
-gola.reviews.create(rating:1, thoughts:'bad')
-gola.reviews.create(rating:2, thoughts:'so so ')
-gola.reviews.create(rating:3, thoughts:'too fried')
-gola.reviews.create(rating:4, thoughts:'bad')
-gola.reviews.create(rating:5, thoughts:'great')
-gola.reviews.create(rating:3, thoughts:'')
+gola.reviews.create(rating:1, thoughts:'bad', user_id: User.first.id )
+gola.reviews.create(rating:2, thoughts:'so so ', user_id: User.last.id )
 

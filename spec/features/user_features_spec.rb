@@ -99,16 +99,6 @@ describe "User" do
       expect(@kfc.reviews.last.user_id).to eq(@byverdu.id) 
     end
 
-    it "a review got the username who created" do
-      
-      visit '/restaurants'
-
-      recreate_sign_in('byverdu','s3cr3tistooshort')
-      crecreate_review('Worst ever',2)
-
-      expect(page).to have_content('byverdu')
-    end
-
     it "a user can only review a restaurant once" do
 
       visit '/restaurants'
