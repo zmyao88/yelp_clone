@@ -22,22 +22,28 @@
 			<%= link_to "Show",  restaurant_path(restaurant)  , class: 'link'               %>
 			<%= link_to "Review",  new_restaurant_review_path(restaurant)  , class: 'link'  %>
 			</div>
-		<% end %>
-		<ul>
-			<% restaurant.reviews.each do | review | %>
-				<li> <%= "#{review.thoughts} (#{review.rating})"%>
-				<li class="arrenge_endorsement"> 
-						 <%= link_to 'Endorse this review',review_endorsements_path(review), class: "review_endorsement"  %> 
+			<ul>
+				<% restaurant.reviews.each do | review | %>
+					<li> <%= "#{review.thoughts} (#{review.rating})"%> </li>
+					<li class="arrenge_endorsement"> 
+							<%= link_to 'Endorse this review',review_endorsements_path(review), class: "review_endorsement"  %> 
 							<b class="endorsements_count"> <%= review.endorsements.count %>  </b> endorsement
-				</li>
-				</li>
-			<% end %>
-		</ul>
+					</li>
+				<% end %>
+			</ul>
+		
+		<% else %>
+			<ul>
+				<% restaurant.reviews.each do | review | %>
+					<li> <%= "#{review.thoughts} (#{review.rating})"%> </li>
+				<% end %>
+			</ul>
+		<% end %>
 
 		<span> Average: <%= star_rating(restaurant.average_rating) %></span>
 	
 	</section>
-	<% end %>
+ <% end %>
 
 <% else %>
 

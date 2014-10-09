@@ -1,4 +1,5 @@
 require "rails_helper"
+require_relative "feature_helpers_spec"
 
 describe "User" do
 
@@ -25,14 +26,9 @@ describe "User" do
   	end
 
 	  it "A user can sign in only with his Username" do
-	  	
-	  	visit '/'
+      
+      recreate_sign_in	  	
 
-	  	click_link('Sign In')
-	  	fill_in 'Username', with: 'byverdu'
-	  	fill_in 'Password', with: 's3cr3tistooshort'
-
-	  	click_button('Log in')
 	  	expect(page).to have_content('Signed in successfully.')
     end
 
@@ -57,7 +53,9 @@ describe "User" do
   end
 
   context "Actions when the user is signed in" do
+
     before(:each) do
+      @kfc     = create(:kfc)
       @byverdu = create(:byverdu)
     end
 
@@ -72,6 +70,24 @@ describe "User" do
       click_button('Log in')
       expect(page).to have_content('Signed in successfully.')
       expect(page).to have_link('Add Restaurant')
+    end
+
+    it "only a registered user can leave a review" do
+      
+      visit '/restaurants'
+
+
+      expect(page).not_to have_link('Endorse this review')
+      
+      recreate_sign_in
+
+
+      recreate_review
+
+
+
+      expect(page).to have_content('Endorse this review')
+      expect(page).to have_content('Add Restaurant')
     end
 
   end
